@@ -106,4 +106,6 @@ public class UserGroup {
     }
 
 
+    public void setID(int i) {
+    }
 }

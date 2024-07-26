@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b0c400f-131d-47ae-99d5-d1137fcf3c4e" name="Changes" comment="feat: Configured the url and db username and password to connect to our database." />
+    <list default="true" id="1b0c400f-131d-47ae-99d5-d1137fcf3c4e" name="Changes" comment="feat: Configured the url and db username and password to connect to our database.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facebook-integration/src/main/java/com/example/facebook_integration/model/UserGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/facebook-integration/src/main/java/com/example/facebook_integration/model/UserGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facebook-integration/src/test/java/com/example/facebook_integration/UnitTests/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/facebook-integration/src/test/java/com/example/facebook_integration/UnitTests/UserServiceTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,45 +39,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.FacebookIntegrationApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jacobdomingo/Group19/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.CategoryServiceTest.executor": "Run",
+    "JUnit.FriendRequestServiceTest.executor": "Run",
+    "JUnit.FriendServiceTest.executor": "Run",
+    "JUnit.GroupServiceTest.executor": "Run",
+    "JUnit.GroupServiceTest.testCreateGroup_GroupAlreadyExists.executor": "Run",
+    "JUnit.TopicServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.testAddUser_Success.executor": "Run",
+    "JUnit.UserServiceTest.testAddUser_Unauthorized.executor": "Run",
+    "JUnit.UserServiceTest.testCreateUser_EmailAlreadyExists.executor": "Run",
+    "JUnit.UserServiceTest.testCreateUser_Success.executor": "Run",
+    "JUnit.UserServiceTest.testCreateUser_UserIsNull.executor": "Run",
+    "JUnit.UserServiceTest.testFindUserByEmail_NotFound.executor": "Run",
+    "JUnit.UserServiceTest.testFindUserByEmail_Success.executor": "Run",
+    "JUnit.UserServiceTest.testGetAllUsers_NoUsers.executor": "Run",
+    "JUnit.UserServiceTest.testLogin_Success.executor": "Run",
+    "JUnit.UserServiceTest.testLogin_UserDeactivated.executor": "Run",
+    "JUnit.UserServiceTest.testLogin_UserNotFound.executor": "Run",
+    "JUnit.UserServiceTest.testLogin_WrongEmail.executor": "Run",
+    "JUnit.UserServiceTest.testLogin_WrongPassword.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateUserProfile_Success.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateUserProfile_UserExists_ProfilePictureProvided.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateUserProfile_UserNotFound.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.FacebookIntegrationApplication.executor": "Run",
+    "git-widget-placeholder": "feature/issue-28",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jacobdomingo/Group19/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.TopicControllerTest">
-    <configuration name="CategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="facebook-integration" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.facebook_integration.IntegrationTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.facebook_integration.IntegrationTests" />
-      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.IntegrationTests.CategoryControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RunManager" selected="JUnit.GroupServiceTest">
     <configuration name="CategoryServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facebook-integration" />
       <extension name="coverage">
@@ -89,48 +101,62 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FriendControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FriendRequestServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facebook-integration" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.facebook_integration.IntegrationTests.*" />
+          <option name="PATTERN" value="com.example.facebook_integration.UnitTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.facebook_integration.IntegrationTests" />
-      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.IntegrationTests.FriendControllerTest" />
+      <option name="PACKAGE_NAME" value="com.example.facebook_integration.UnitTests" />
+      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.UnitTests.FriendRequestServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TopicControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FriendServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facebook-integration" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.facebook_integration.IntegrationTests.*" />
+          <option name="PATTERN" value="com.example.facebook_integration.UnitTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.facebook_integration.IntegrationTests" />
-      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.IntegrationTests.TopicControllerTest" />
+      <option name="PACKAGE_NAME" value="com.example.facebook_integration.UnitTests" />
+      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.UnitTests.FriendServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TopicControllerTest.testGetAllTopics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facebook-integration" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.facebook_integration.IntegrationTests.*" />
+          <option name="PATTERN" value="com.example.facebook_integration.UnitTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.facebook_integration.IntegrationTests" />
-      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.IntegrationTests.TopicControllerTest" />
-      <option name="METHOD_NAME" value="testGetAllTopics" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.example.facebook_integration.UnitTests" />
+      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.UnitTests.GroupServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TopicServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facebook-integration" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.facebook_integration.UnitTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.facebook_integration.UnitTests" />
+      <option name="MAIN_CLASS_NAME" value="com.example.facebook_integration.UnitTests.TopicServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,10 +172,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TopicControllerTest" />
-        <item itemvalue="JUnit.FriendControllerTest" />
-        <item itemvalue="JUnit.TopicControllerTest.testGetAllTopics" />
-        <item itemvalue="JUnit.CategoryControllerTest" />
+        <item itemvalue="JUnit.GroupServiceTest" />
+        <item itemvalue="JUnit.TopicServiceTest" />
+        <item itemvalue="JUnit.FriendServiceTest" />
+        <item itemvalue="JUnit.FriendRequestServiceTest" />
         <item itemvalue="JUnit.CategoryServiceTest" />
       </list>
     </recent_temporary>
