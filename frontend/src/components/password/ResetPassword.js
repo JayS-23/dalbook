@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Forgot.css";
 import { validateEmail, validatePassword } from "../authentication/SignupValidation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ResetPassword() {
   const [email, setEmail] = useState("");
@@ -57,8 +59,7 @@ export default function ResetPassword() {
         throw new Error("Failed to update password");
       }
 
-      console.log("Password updated successfully");
-      alert("Password updated successfully");
+      toast.success("Password updated successfully");
       setEmail("");
       setNewPassword("");
       setErrorMessage(null);
@@ -71,6 +72,7 @@ export default function ResetPassword() {
 
   return (
     <div className="container">
+      <ToastContainer />
       <div className="paper">
         <h2 className="subtitle">Reset Password</h2>
         <form

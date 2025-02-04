@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./EditProfile.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const UserProfile = () => {
+function UserProfile() {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -26,6 +28,7 @@ const UserProfile = () => {
         setPreviewProfilePicture(response.data.profilePicture);
       } catch (error) {
         console.error("Error fetching user data:", error);
+        toast.warn("Error fetching user data.");
       }
     };
 
@@ -53,6 +56,7 @@ const UserProfile = () => {
       formData.append("lastName", user.lastName);
       formData.append("bio", user.bio);
       formData.append("status", user.status);
+
       if (user.profilePicture) {
         formData.append("profilePicture", user.profilePicture);
       }
@@ -184,6 +188,6 @@ const UserProfile = () => {
       </div>
     </div>
   );
-};
+}
 
 export default UserProfile;

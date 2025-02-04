@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Forgot.css";
 import { validateEmail } from "../authentication/SignupValidation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SecurityQuestion() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [securityAnswer, setSecurityAnswer] = useState("");
   const [securityQuestion, setSecurityQuestion] = useState("");
-  // const [backendBirthday, setBackendBirthday] = useState('');
   const navigate = useNavigate();
 
   const handleEmailSubmit = async (e) => {
@@ -47,7 +48,7 @@ export default function SecurityQuestion() {
       }
     } catch (error) {
       console.error("Error fetching user from backend:", error);
-      alert("Error fetching user from backend");
+      toast.error("Error fetching user from backend.");
     }
   };
 
@@ -77,6 +78,7 @@ export default function SecurityQuestion() {
 
   return (
     <div className="container">
+      <ToastContainer />
       <div className="paper">
         <h2 className="subtitle">Email</h2>
         <form

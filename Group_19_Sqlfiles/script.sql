@@ -1,0 +1,65 @@
+USE csci3130_group19;
+
+CREATE TABLE User (
+  UserID INT PRIMARY KEY AUTO_INCREMENT,
+  FirstName VARCHAR(50) NOT NULL,
+  LastName VARCHAR(50) NOT NULL,
+  Email VARCHAR(100) UNIQUE NOT NULL,
+  Password VARCHAR(255) NOT NULL,
+  DateOfBirth DATE
+);
+
+ALTER TABLE User
+ADD COLUMN Bio TEXT,  -- Stores user biography
+ADD COLUMN ProfilePic VARCHAR(255);  -- Stores profile picture URL/path (optional)
+
+CREATE TABLE Post (
+  PostID INT PRIMARY KEY AUTO_INCREMENT,
+  UserID INT NOT NULL,  -- Foreign key referencing User table
+  Content VARCHAR(255) NOT NULL,
+  Image VARCHAR(255),
+  Timestamp DATETIME NOT NULL,
+  Tags VARCHAR(100),
+  Mentions VARCHAR(100),
+  FOREIGN KEY (UserID) REFERENCES User(UserID)  -- Foreign key constraint
+);
+
+CREATE TABLE Comment (
+  CommentID INT PRIMARY KEY AUTO_INCREMENT,
+  PostID INT NOT NULL,
+  UserID INT NOT NULL,
+  Content TEXT NOT NULL,
+  Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (PostID) REFERENCES Post(PostID),
+  FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE Friend (
+  FriendshipID INT PRIMARY KEY AUTO_INCREMENT,
+  FriendID INT NOT NULL
+);
+
+CREATE TABLE `Group` (
+    GroupID INT PRIMARY KEY AUTO_INCREMENT,
+    GroupName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    ProfilePic VARCHAR(255),
+    MemberCount INT DEFAULT 0
+);
+
+CREATE TABLE GroupMember (
+    MembershipID INT PRIMARY KEY AUTO_INCREMENT,
+    GroupID INT NOT NULL,
+    FOREIGN KEY (GroupID) REFERENCES `Group`(GroupID)
+);
+
+CREATE TABLE Likes (
+  LikeID INT PRIMARY KEY AUTO_INCREMENT,
+  PostID INT NOT NULL,
+  UserID INT NOT NULL,
+  LikeTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (PostID) REFERENCES Post(PostID),
+  FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+

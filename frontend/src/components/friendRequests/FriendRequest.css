@@ -21,6 +21,11 @@ input[type="text-id"] {
 
 .friends-input {
   padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.friends-list {
+  padding-top: 1rem;
 }
 
 .send-button {
@@ -28,7 +33,7 @@ input[type="text-id"] {
 }
 
 .send-button:hover {
-  background-color: #28a745;
+  background-color: #1d7732;
   transform: translateY(-2px);
 }
 
@@ -42,7 +47,7 @@ input[type="text-id"] {
 }
 
 .delete-button:hover {
-  background-color: #dc3545;
+  background-color: #a12633;
   transform: translateY(-2px);
 }
 
@@ -51,10 +56,15 @@ input[type="text-id"] {
   transform: translateY(0);
 }
 
-.name {
-  font-size: x-large;
-  padding-top: 0.5rem;
-  padding-right: 1rem;
+.friends-name {
+  display: flex;
+  align-items: center;
+  font-weight: 550;
+}
+
+.friends-name > img {
+  border-radius: 80%;
+  width: 7%;
 }
 
 .request-name {
@@ -63,12 +73,7 @@ input[type="text-id"] {
   padding-right: 1rem;
 }
 
-.friends-links {
-  padding-top: 30px;
-  padding-left: 1rem;
-}
-
 .email-error-message {
   color: red;
-  padding: 1rem 0px 0px 1rem ;
+  padding: 1rem 0px 0px 1rem;
 }

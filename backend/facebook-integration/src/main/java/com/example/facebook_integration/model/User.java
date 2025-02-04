@@ -1,5 +1,6 @@
 package com.example.facebook_integration.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
@@ -8,7 +9,14 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> develop
 @Entity
+@Table(name = "`user`") // Escaping the table name
 public class User {
 
     @Id
@@ -33,6 +41,21 @@ public class User {
     private String profilePic;
     @NotBlank(message = "Security Answer is required.")
     private String securityAnswer;
+<<<<<<< HEAD
+=======
+    private boolean is_active = true;
+
+    public enum Role {
+        Student,
+        Professor,
+        Faculty,
+        System_Admin,
+        Group_Admin
+    }
+
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.Student;
+>>>>>>> develop
 
     public enum Status {
         Available,
@@ -43,6 +66,20 @@ public class User {
 
     public Status status = Status.Available;
 
+<<<<<<< HEAD
+=======
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FriendRequest> sentRequests;
+
+    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FriendRequest> receivedRequests;
+
+    // Connecting user to user groups in a many-to-many relationship
+    @ManyToMany(mappedBy = "users")
+    @JsonIgnore
+    private List<UserGroup> groups = new ArrayList<>();
+
+>>>>>>> develop
     // Constructor
     public User() {
     }
@@ -141,4 +178,31 @@ public class User {
         this.status = status;
     }
 
+<<<<<<< HEAD
+=======
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public boolean getIsActive() {
+        return is_active;
+    }
+
+    public void setIsActive(boolean is_active) {
+        this.is_active = is_active;
+    }
+
+    public List<UserGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<UserGroup> UserGroups) {
+        this.groups = UserGroups;
+    }
+
+>>>>>>> develop
 }

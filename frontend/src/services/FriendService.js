@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const API_URL = "http://localhost:8085/api/friends";
 
@@ -16,16 +18,16 @@ const sendFriendRequest = async (senderId, receiverEmail) => {
 
       // Handle different error scenarios based on `message`
       if (message === "Friend request already sent") {
-        alert(message);
+        toast.warn(message);
       } else if (message === "Already friends") {
-        alert(message);
+        toast.warn(message);
       } else {
-        alert(message);
+        toast.warn(message);
       }
     } else {
       // Handle cases where error.response is undefined
       console.error("Error:", error.message);
-      alert("Failed to send friend request due to a network error");
+      toast.warn("Failed to send friend request due to a network error");
     }
   }
 };
@@ -54,7 +56,7 @@ const FriendService = {
   acceptFriendRequest,
   getPendingRequests,
   getFriends,
-  deleteFriend,
+  deleteFriend
 };
 
 export default FriendService;

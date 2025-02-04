@@ -22,6 +22,12 @@ import {
   IconUsersGroup,
 } from "@tabler/icons-react";
 import friendService from "../../services/FriendService";
+<<<<<<< HEAD
+=======
+import Post from "./Post";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+>>>>>>> develop
 
 function Feed() {
   const [friends, setFriends] = useState([]);
@@ -34,13 +40,24 @@ function Feed() {
   };
 
   const friendsPage = () => {
-    navigate("/friendsList");
+    navigate("/friends");
   };
 
   const groupsPage = () => {
-    navigate("/");
+    navigate("/groupDashboard");
   };
 
+<<<<<<< HEAD
+=======
+  const categoryOfDayPage = () => {
+    navigate("/categoryOftheDay");
+  };
+
+  const pages = () => {
+    navigate("/pages");
+  };
+
+>>>>>>> develop
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
     const storedUserEmail = localStorage.getItem("userEmail");
@@ -54,9 +71,13 @@ function Feed() {
             `http://localhost:8085/api/user/get/${storedUserEmail}`
           );
           setUser(response.data);
+<<<<<<< HEAD
           console.log("User information retrieved successfully");
+=======
+>>>>>>> develop
         } catch (error) {
           console.log("Error fetching user", error);
+          toast.warn("Error fetching user.");
         }
       };
       fetchUser();
@@ -66,13 +87,52 @@ function Feed() {
         .getFriends(storedUserId)
         .then((response) => {
           setFriends(response.data);
-          console.log("Success fetching friends of user id:", userId);
         })
         .catch((error) => {
           console.error("Error fetching friends:", error);
-          alert("An error occurred. Please try again!");
+          toast.warn("An error occurred. Please try again!");
         });
     }
+<<<<<<< HEAD
+=======
+
+    const retrieveUsers = async (postsData) => {
+      // Fetch user details for each post
+      const userPromises = postsData.map((post) =>
+        axios.get(`http://localhost:8085/api/user/getById/${post.userId}`)
+      );
+      const userResponses = await Promise.all(userPromises);
+
+      // Create a mapping of user IDs to user data
+      const userMap = userResponses.reduce((acc, response) => {
+        const user = response.data;
+        acc[user.id] = user;
+        return acc;
+      }, {});
+      setUsers(userMap);
+    };
+
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get("http://localhost:8085/api/posts");
+        const posts = response.data;
+
+        // Sort posts from latest to oldest based on a `timestamp` field
+        posts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+        retrieveUsers(posts); // Assuming retrieveUsers is used to process posts
+        console.log(posts);
+        setPosts(posts);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+        toast.warn("Error fetching posts.");
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+>>>>>>> develop
   }, [userId]);
 
   const getStatusIcon = (status) => {
@@ -98,6 +158,10 @@ function Feed() {
     }
   };
 
+  const viewFriendProfile = (friendEmail) => {
+    navigate(`/friendProfile/${friendEmail}`);
+  };
+
   return (
     <div className="main">
       <div className="left-side">
@@ -107,7 +171,15 @@ function Feed() {
           style={{ cursor: "pointer" }}
         >
           <img
+<<<<<<< HEAD
             src="/images/avatar-1.jpeg"
+=======
+            src={
+              user && user.profilePic
+                ? `http://localhost:8085${user.profilePic}`
+                : "/images/dalhousie-logo.png"
+            }
+>>>>>>> develop
             alt=""
             style={{ padding: "1rem" }}
           />
@@ -140,7 +212,7 @@ function Feed() {
           <IconCalendarStar stroke={2} />
           <div>Events</div>
         </div>
-        <div className="panel">
+        <div className="panel" onClick={pages}>
           <IconFlag stroke={2} />
           <div>Pages</div>
         </div>
@@ -218,13 +290,21 @@ function Feed() {
           <div className="text">
             <div className="user-post">
               <img
+<<<<<<< HEAD
                 src="/images/avatar-1.jpeg"
+=======
+                src={
+                  user && user.profilePic
+                    ? `http://localhost:8085${user.profilePic}`
+                    : "/images/dalhousie-logo.png"
+                }
+>>>>>>> develop
                 alt=""
                 style={{ height: "50px", padding: "1rem" }}
               />
               <input type="Mind" placeholder="What's on your mind, John?" />
             </div>
-            <div className="border-post"></div>
+            {/* <div className="border-post"></div> */}
             <div className="post-icons">
               <div className="icon">
                 <div className="post-icon">
@@ -238,6 +318,69 @@ function Feed() {
               </div>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+          {showPostPopup && (
+            <div className="post-popup">
+              <div className="post-popup-content">
+                <Post />
+                <button
+                  className="post-popup-close"
+                  onClick={() => setShowPostPopup(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+          <div>
+            {isLoading
+              ? "loading"
+              : posts.map((post) => (
+                  <div className="posted" key={post.postId}>
+                    <div className="post">
+                      <div className="feed-profile-picture">
+                        <img
+                          src={
+                            users[post.userId]?.profilePic
+                              ? `http://localhost:8085${
+                                  users[post.userId]?.profilePic
+                                }`
+                              : "/images/dalhousie-logo.png"
+                          }
+                          alt=""
+                          style={{ height: "50px", padding: "1rem" }}
+                        />
+                        <div className="users-name">
+                          {users[post.userId]?.firstName || "Unknown"}{" "}
+                          {users[post.userId]?.lastName || "User"}
+                        </div>
+                      </div>
+                      <div className="edit">
+                        <IconDots stroke={2} />
+                      </div>
+                    </div>
+                    <div className="caption">{post.description}</div>
+                    {post.mediaUrl && <img src={post.mediaUrl} alt="post" />}
+                    <p>{post.feeling}</p>
+                    <div className="reactions">
+                      <div className="like">
+                        <IconThumbUp stroke={2} />
+                        Like
+                      </div>
+                      <div className="comment">
+                        <IconMessageCircle stroke={2} />
+                        Comment
+                      </div>
+                      <div className="share">
+                        <IconShare3 stroke={2} />
+                        Share
+                      </div>
+                    </div>
+                  </div>
+                ))}
+          </div>
+>>>>>>> develop
           <div className="posted">
             <div className="post">
               <div className="feed-profile-picture">
@@ -335,9 +478,22 @@ function Feed() {
         </div>
         <div className="concise">
           {friends.map((friend) => (
-            <div key={friend.id} className="profiles name">
+            <div
+              key={friend.id}
+              className="profiles name"
+              onClick={() => viewFriendProfile(friend.email)}
+              style={{ cursor: "pointer" }}
+            >
               <img
+<<<<<<< HEAD
                 src="/images/avatar-2.jpeg"
+=======
+                src={
+                  friend.profilePic
+                    ? `http://localhost:8085${friend.profilePic}`
+                    : "/images/dalhousie-logo.png"
+                }
+>>>>>>> develop
                 alt=""
                 style={{ padding: "1rem" }}
               />

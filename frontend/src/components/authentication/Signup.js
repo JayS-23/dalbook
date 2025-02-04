@@ -3,8 +3,10 @@ import "./Login.css"; // Using the same CSS file for simplicity
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { validateEmail, validatePassword } from "./SignupValidation";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Signup = () => {
+function Signup() {
   const [firstName, setFname] = useState("");
   const [lastName, setLname] = useState("");
   const [dateOfBirth, setBirthday] = useState("");
@@ -64,11 +66,16 @@ const Signup = () => {
       if (response.status === 200) {
         const userId = response.data;
         console.log(`User created successfully with ID: ${userId}`);
-        alert("User created successfully");
+        toast.success("User created successfully!");
 
         // Store login flag in local storage
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("userId", userId);
+<<<<<<< HEAD
+=======
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userRole", role);
+>>>>>>> develop
 
         // Redirect to the home page
         navigate("/home");
@@ -78,13 +85,14 @@ const Signup = () => {
         setErrors({ email: "Email already taken" });
       } else {
         console.error("Error signing up:", error);
-        alert("An error occurred. Please try again!");
+        toast.error("An error occurred. Please try again!");
       }
     }
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center login-page">
+      <ToastContainer />
       <div className="p-3 bg-white w-25">
         <form onSubmit={handleSubmit} className="signup-form">
           <div>
@@ -202,5 +210,5 @@ const Signup = () => {
       </div>
     </div>
   );
-};
+}
 export default Signup;

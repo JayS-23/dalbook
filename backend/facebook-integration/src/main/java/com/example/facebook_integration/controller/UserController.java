@@ -1,6 +1,7 @@
 package com.example.facebook_integration.controller;
 
 import com.example.facebook_integration.model.User;
+import com.example.facebook_integration.model.UserGroup;
 import com.example.facebook_integration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.Map;
@@ -49,6 +51,21 @@ public class UserController {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Function: getUserById
+     * Purpose: Retrieves a user by their id.
+     * Parameters: int id - The id of the user.
+     * Returns: ResponseEntity<User> - The user object.
+     */
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        Optional<User> userOptional = userService.findUserById(id);
+        return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
+    }
+
+    /**
+>>>>>>> develop
      * Function: login
      * Purpose: Handles user login.
      * Parameters: Map<String, String> body - A map containing email and password.
@@ -115,5 +132,11 @@ public class UserController {
         return ResponseEntity.ok().body("Profile updated successfully");
     }
 
+<<<<<<< HEAD
+=======
+    @GetMapping("/groups/{userId}")
+    public List<UserGroup> getAllGroups(@PathVariable int userId) {
+        return userService.getAllGroups(userId);
+    }
+>>>>>>> develop
 }
-

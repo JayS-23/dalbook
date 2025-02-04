@@ -3,19 +3,27 @@
 .main {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap */
+  font: 1.6rem inter;
 }
 
 /* Left side - Profile */
 .left-side {
   height: 50rem;
-  width: 21%;
+  width: 22%;
   left: 0;
+<<<<<<< HEAD
   flex-wrap: wrap;
+=======
+  padding-right: 70px;
+  flex: 1;
+  min-width: 250px; /* Ensure columns don't shrink too much */
+>>>>>>> develop
 }
 .profile {
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem; /* Adjust font size for smaller screens */
   font-weight: 550;
   padding-top: 10px;
 }
@@ -27,7 +35,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 550;
   padding: 0.5rem;
   padding-left: 2rem;
@@ -44,7 +52,7 @@
 .pages {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-left: 1rem;
   font-weight: 550;
 }
@@ -74,7 +82,8 @@
   height: 50rem;
   width: 21%;
   left: 0;
-  flex-wrap: wrap;
+  flex: 1;
+  min-width: 250px; /* Ensure columns don't shrink too much */
 }
 .contact {
   display: flex;
@@ -113,41 +122,27 @@
   height: 30rem;
   justify-content: center;
 }
-.addStory {
-  display: flex;
-  width: 100%;
-  margin: 18px 0;
-  color: white;
-  font-size: 1.5rem;
-  height: 15rem;
-  justify-content: flex-start;
-  padding-left: 4%;
-}
-.story {
-  width: 130px;
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 15rem;
-  border-radius: 0.5rem;
-  background-color: black;
-}
 .create-post {
   display: grid;
   height: 25rem;
   width: 80%;
   margin-left: 5%;
 }
+.text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 0 16px;
+  margin-top: 30px;
+  border-radius: 12px;
+}
 .user-post {
-  margin-top: 5%;
+  margin-top: 2%;
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  background-color: white;
   margin-left: 0;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 .user-post > div {
   margin-left: 2px;
@@ -156,7 +151,7 @@
   border-radius: 50%;
 }
 input[type="Mind"] {
-  width: 80%;
+  width: 100%;
   margin: 15px 0;
   height: 3rem;
   display: inline;
@@ -169,10 +164,18 @@ input[type="Mind"] {
   width: 90%; /* Adjust width as needed */
   margin: 0 auto;
   border-bottom: 2px solid rgb(198, 198, 198);
-  background-color: white;
 }
 .post-icons {
   display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  height: 40px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #ccc;
+  overflow-y: hidden;
+  justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
   margin-left: 0;
   height: 3rem;
@@ -253,4 +256,75 @@ input[type="Mind"] {
   align-items: center;
   font-weight: 400;
   font-size: 1.2rem;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 1200px) {
+  .left-side,
+  .right-side {
+    width: 45%;
+  }
+
+  .feed-profile-picture > img {
+    width: 15%;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-side,
+  .right-side {
+    width: 10%;
+    padding: 0;
+  }
+
+  .profile > img,
+  .pages > img,
+  .dropdown-panels > img,
+  .feed-profile-picture > img {
+    width: 25%; /* Adjust image size for very small screens */
+  }
+
+  .text {
+    padding: 0.5rem;
+  }
+
+  input[type="text"] {
+    height: 2rem;
+  }
+
+  .post-icons {
+    flex-direction: column;
+  }
+
+  .post-icon {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile {
+    font-size: 1rem;
+  }
+
+  .panel,
+  .pages,
+  .dropdown-panels {
+    font-size: 0.9rem;
+  }
+
+  .contacts,
+  .feed-profile-picture,
+  .caption {
+    font-size: 0.9rem;
+  }
+
+  .reactions {
+    flex-direction: column;
+  }
+
+  .like,
+  .comment,
+  .share {
+    font-size: 0.9rem;
+  }
 }

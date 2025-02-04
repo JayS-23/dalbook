@@ -1,0 +1,108 @@
+.admin-interface {
+  padding: 20px;
+}
+
+.admin-interface table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.admin-interface th,
+.admin-interface td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.admin-interface th {
+  background-color: #f4f4f4;
+}
+
+.role-change-form {
+  margin-top: 20px;
+}
+
+.role-change-form h3 {
+  margin-bottom: 10px;
+}
+
+.role-change-form select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.admin-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.admin-change-role {
+  background-color: #0d6efd;
+}
+
+.admin-change-role:hover {
+  background-color: #0d6efd;
+  transform: translateY(-2px);
+}
+
+.admin-change-role:active {
+  background-color: #0d6efd;
+  transform: translateY(0);
+}
+
+.admin-update-role {
+  background-color: #28a745;
+}
+
+.admin-update-role:hover {
+  background-color: #1d7732;
+  transform: translateY(-2px);
+}
+
+.admin-update-role:active {
+  background-color: #28a745;
+  transform: translateY(0);
+}
+
+.admin-deactivate {
+  background-color: #ffc107;
+  color: black;
+}
+
+.admin-activate {
+  background-color: #28a745;
+  color: white;
+}
+
+.admin-delete {
+  background-color: #dc3545;
+}
+
+.admin-delete:hover {
+  background-color: #a12633;
+  transform: translateY(-2px);
+}
+
+.admin-delete:active {
+  background-color: #dc3545;
+  transform: translateY(0);
+}
+
+.admin-interface table tbody tr.deactivated {
+  background-color: #f0f0f0;
+  color: #a0a0a0;
+}
+
+.admin-btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

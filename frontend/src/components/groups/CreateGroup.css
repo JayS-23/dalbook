@@ -1,0 +1,43 @@
+.create-group-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-group-header {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-group-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-group-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.create-group-button {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-group-button:hover {
+  background-color: #0056b3;
+}

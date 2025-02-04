@@ -1,0 +1,44 @@
+.grouplist-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.grouplist-header {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.grouplist-groupsSection {
+  margin-top: 30px;
+}
+.grouplist-groupsHeader {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.grouplist-groupList {
+  list-style-type: none;
+  padding: 0;
+}
+.grouplist-groupListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.grouplist-removeButton {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #FF4136;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.grouplist-removeButton:hover {
+  background-color: #c12c26;
+}

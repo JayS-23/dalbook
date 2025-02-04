@@ -1,0 +1,51 @@
+.pages-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.pages-layout {
+  display: flex;
+  flex: 1;
+}
+
+.pages-title {
+  padding-bottom: 20px;
+}
+
+.pages-sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.pages-button {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background-color: #f4f4f4;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pages-button:hover {
+  background-color: #ddd;
+}
+
+.pages-button.active {
+  background-color: #007bff;
+  color: white;
+  border-left: 4px solid #0056b3;
+}
+
+.pages-content {
+  flex: 1;
+  padding: 20px;
+}

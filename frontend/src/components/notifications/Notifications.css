@@ -1,0 +1,63 @@
+/* Notifications.css */
+.notifications-container {
+  padding: 1rem;
+}
+
+.notifications-section {
+  align-items: center;
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.notification-list-section {
+  padding: 20px;
+}
+
+.notifications-friend-request {
+  padding: 5px;
+}
+
+.notifications-friend-request div > h2 {
+  font-size: 20px;
+}
+
+.notifications-friend-request .friends-name > img {
+  width: 4%;
+}
+
+.notifications-friend-request .friends-name {
+  padding-left: 10px;
+}
+
+.notifications-friend-request .request-name {
+  font-size: 20px;
+}
+
+.notifications-friend-request .friends-name > div > button {
+  font-size: 14px;
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.notifications-section div h2 {
+  padding: none;
+}
+
+.notifications-section h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+  padding: 1rem 0;
+}

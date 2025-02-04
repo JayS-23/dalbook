@@ -1,6 +1,11 @@
 package com.example.facebook_integration.service.Implementations;
 
 import com.example.facebook_integration.model.User;
+<<<<<<< HEAD
+=======
+import com.example.facebook_integration.model.UserGroup;
+import com.example.facebook_integration.repository.FriendRequestRepository;
+>>>>>>> develop
 import com.example.facebook_integration.repository.UserRepository;
 import com.example.facebook_integration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -148,4 +153,106 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("User with email " + email + " not found");
         }
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public Optional<User> findUserById(int id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        List<User> allUsers = userRepository.findAll();
+        return allUsers.stream()
+                .filter(user -> !user.getRole().toString().equals("System_Admin"))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public User addUser(User user) {
+        if (!"System_Admin".equals(user.getRole().toString())) {
+            throw new SecurityException("Unauthorized");
+        }
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUserRole(int id, String role, String adminRole) {
+        if (!"System_Admin".equals(adminRole)) {
+            throw new SecurityException("Unauthorized");
+        }
+
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setRole(User.Role.valueOf(role)); // Assuming Role is an enum
+            return userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("User not found");
+        }
+    }
+
+    @Override
+    public void deactivateUser(int id, String adminRole) {
+        if (!"System_Admin".equals(adminRole)) {
+            throw new SecurityException("Unauthorized");
+        }
+
+        Optional<User> userOptional = userRepository.findById(id);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setIsActive(false);
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("User not found");
+        }
+    }
+
+    @Override
+    public void activateUser(int id, String adminRole) {
+        if (!"System_Admin".equals(adminRole)) {
+            throw new SecurityException("Unauthorized");
+        }
+
+        Optional<User> userOptional = userRepository.findById(id);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setIsActive(true);
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("User not found");
+        }
+    }
+
+    @Override
+    @Transactional
+    public void removeUser(int id, String adminRole) {
+        if (!"System_Admin".equals(adminRole)) {
+            throw new SecurityException("Unauthorized");
+        }
+
+        Optional<User> userOptional = findUserById(id);
+
+        if (userOptional.isPresent()) {
+            // Delete all friend requests where the user is involved
+            friendRequestRepository.deleteBySenderId(id);
+            friendRequestRepository.deleteByReceiverId(id);
+
+            // Delete the user
+            userRepository.deleteById(id);
+        }
+        else {
+            throw new IllegalArgumentException("User with id " + id + " not found");
+        }
+    }
+
+    @Override
+    public List<UserGroup> getAllGroups(int userId){
+        User user = userRepository.findById(userId).get();
+        return user.getGroups();
+    }
+>>>>>>> develop
 }
